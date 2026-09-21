@@ -2,9 +2,9 @@ using EscolaDeCursos.WebApp.Modulos.ModuloAluno.Dominio;
 using EscolaDeCursos.WebApp.Modulos.ModuloInstrutor.Dominio;
 using EscolaDeCursos.WebApp.Compartilhado.Infraestrutura.Arquivos;
 using EscolaDeCursos.WebApp.Modulos.ModuloAluno.Infraestrutura;
-using EscolaDeCursos.WebApp.Modulos.ModuloInstrutor.Infraestrutura;
 using Microsoft.EntityFrameworkCore;
 using EscolaDeCursos.WebApp.Compartilhado.Infraestrutura.Orm;
+using EscolaDeCursos.WebApp.Modulos.ModuloInstrutor.Infraestrutura;
 
 namespace EscolaDeCursos.WebApp.Compartilhado.Infraestrutura;
 
@@ -36,7 +36,7 @@ public static class InjecaoDependencia
         });
         IServiceCollection serviceCollection = serviceCollection1;
 
-        services.AddScoped<IRepositorioInstrutor, RepositorioInstrutorEmArquivo>();
+        services.AddScoped<IRepositorioInstrutor, RepositorioInstrutorEmOrm>();
         services.AddScoped<IRepositorioAluno, RepositorioAlunoEmArquivo>();
     }
 }
