@@ -40,8 +40,8 @@ public static class InjecaoDependencia
         IServiceCollection serviceCollection = serviceCollection1;
 
         services.AddScoped<IRepositorioInstrutor, RepositorioInstrutorEmOrm>();
-        services.AddScoped<IRepositorioAluno, RepositorioAlunoEmArquivo>();
-        services.AddScoped<IRepositorioCurso, RepositorioCursoEmArquivo>();
-        services.AddScoped<IRepositorioAula, RepositorioAulaEmArquivo>();
+        services.AddScoped<IRepositorioAluno, RepositorioAlunoEmOrm>();
+        services.AddScoped<IRepositorioCurso, RepositorioCursoEmOrm>();
+        services.AddScoped<IRepositorioAula, RepositorioAulaEmOrm>();
     }
 }

@@ -10,7 +10,7 @@ public sealed class RepositorioCursoEmArquivo(ContextoJson contexto)
     {
         return registros.Any(c =>
             c.Id != idIgnorado &&
-            string.Equals(c.Nome.Trim(), nome.Trim(), StringComparison.OrdinalIgnoreCase)
+            c.Nome.Trim() == nome.Trim()
         );
     }
 
