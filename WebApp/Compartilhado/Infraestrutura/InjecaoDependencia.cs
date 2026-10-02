@@ -32,7 +32,10 @@ public static class InjecaoDependencia
                 );
             }
 
-            options.UseSqlServer(connectionString);
+            options.UseSqlServer(connectionString, config =>
+            {
+                config.EnableRetryOnFailure(3); //Brasil <-> Canada = Latencia 300ms
+            });
         });
         IServiceCollection serviceCollection = serviceCollection1;
 
