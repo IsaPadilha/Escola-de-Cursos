@@ -8,7 +8,9 @@ namespace EscolaDeCursos.WebApp.Modulos.ModuloTurma.Dominio;
 public class Turma : EntidadeBase<Turma>
 {
     public string Nome { get; set; } = string.Empty;
+    public Guid CursoId { get; set; } = Guid.Empty;
     public Curso Curso { get; set; } = null!;
+    public Guid InstrutorId { get; set; } = Guid.Empty;
     public Instrutor Instrutor { get; set; } = null!;
     public int NumeroMaximoAlunos { get; set; }
     public DateOnly DataInicio { get; set; }
