@@ -6,34 +6,46 @@ public record ListarAlunoViewModel(
     Guid Id,
     string Nome,
     string Email,
+    string Cpf,
     string NumeroMatricula
 );
 
 public record CadastrarAlunoViewModel(
     [Required(ErrorMessage = "O campo \"Nome\" deve ser preenchido.")]
-    [StringLength(100, MinimumLength = 2, ErrorMessage = "O campo \"Nome\" deve conter entre 2 e 100 caracteres.")]
+    [StringLength(100, MinimumLength = 3, ErrorMessage = "O campo \"Nome\" deve conter entre 3 e 100 caracteres.")]
     string Nome,
 
     [Required(ErrorMessage = "O campo \"E-mail\" deve ser preenchido.")]
     [EmailAddress(ErrorMessage = "O campo \"E-mail\" deve conter um endereço de e-mail válido.")]
-    string Email
+    string Email,
+
+
+    [Required(ErrorMessage = "O campo \"CPF\" deve ser preenchido.")]
+        [StringLength(11, MinimumLength = 11, ErrorMessage = "O campo \"CPF\" deve conter exatamente 11 dígitos.")]
+        string Cpf
 );
 
 public record EditarAlunoViewModel(
     Guid Id,
 
     [Required(ErrorMessage = "O campo \"Nome\" deve ser preenchido.")]
-    [StringLength(100, MinimumLength = 2, ErrorMessage = "O campo \"Nome\" deve conter entre 2 e 100 caracteres.")]
+    [StringLength(100, MinimumLength = 3, ErrorMessage = "O campo \"Nome\" deve conter entre 3 e 100 caracteres.")]
     string Nome,
 
     [Required(ErrorMessage = "O campo \"E-mail\" deve ser preenchido.")]
     [EmailAddress(ErrorMessage = "O campo \"E-mail\" deve conter um endereço de e-mail válido.")]
-    string Email
+    string Email,
+
+
+    [Required(ErrorMessage = "O campo \"CPF\" deve ser preenchido.")]
+    [StringLength(11, MinimumLength = 11, ErrorMessage = "O campo \"CPF\" deve conter exatamente 11 dígitos.")]
+    string Cpf
 );
 
 public record ExcluirAlunoViewModel(
     Guid Id,
     string Nome,
     string Email,
+    string Cpf,
     string NumeroMatricula
 );

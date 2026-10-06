@@ -16,6 +16,7 @@ public class AlunoController(
                 a.Id,
                 a.Nome,
                 a.Email,
+                a.Cpf,
                 a.NumeroMatricula
             ))
             .ToList();
@@ -27,6 +28,7 @@ public class AlunoController(
     public ActionResult Cadastrar()
     {
         CadastrarAlunoViewModel cadastrarVm = new CadastrarAlunoViewModel(
+            string.Empty,
             string.Empty,
             string.Empty
         );
@@ -40,7 +42,7 @@ public class AlunoController(
         if (!ModelState.IsValid)
             return View(cadastrarVm);
 
-        Aluno novoAluno = new Aluno(cadastrarVm.Nome, cadastrarVm.Email);
+        Aluno novoAluno = new Aluno(cadastrarVm.Nome, cadastrarVm.Email, cadastrarVm.Cpf);
         List<string> erros = novoAluno.Validar();
 
         if (erros.Count > 0)
@@ -65,7 +67,8 @@ public class AlunoController(
         EditarAlunoViewModel editarVm = new EditarAlunoViewModel(
             aluno.Id,
             aluno.Nome,
-            aluno.Email
+            aluno.Email,
+            aluno.Cpf
         );
 
         return View(editarVm);
@@ -77,7 +80,7 @@ public class AlunoController(
         if (!ModelState.IsValid)
             return View(editarVm);
 
-        Aluno alunoAtualizado = new Aluno(editarVm.Nome, editarVm.Email);
+        Aluno alunoAtualizado = new Aluno(editarVm.Nome, editarVm.Email, editarVm.Cpf);
         List<string> erros = alunoAtualizado.Validar();
 
         if (erros.Count > 0)
@@ -107,6 +110,7 @@ public class AlunoController(
             aluno.Id,
             aluno.Nome,
             aluno.Email,
+            aluno.Cpf,
             aluno.NumeroMatricula
         );
 
